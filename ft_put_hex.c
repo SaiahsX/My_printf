@@ -6,18 +6,17 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:38:04 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/01/12 18:22:34 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:29:31 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_put_hex(unsigned long n, t_check *audit, char format)
+void	ft_put_hex(unsigned long long n, t_check *audit, char format)
 {
 	int	fmt;
 
 	fmt = 'a';
-
 	if (format == 'X')
 		fmt = 'A';
 	if (n >= 16)

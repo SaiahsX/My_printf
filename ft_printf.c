@@ -6,9 +6,66 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:03:51 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/01/12 19:24:56 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/01/22 20:02:46 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*	This is the primary function file for my ft_printf.
+
+	My ft_printf.c with a prototype "int	ft_printf(const char *format, ...)"
+	is	a variadic function, that is, it accepts a variable	number arguments 
+	that is denoted by the ellipses "..." in the protoype.
+	A struct 't_check' was declared in my header file, "ft_printf.h" in the 
+	format:
+	
+	typedef struct s_check
+	{
+	int	error;
+	int	count;
+	}				t_check;
+	
+	This provides the a means to 
+	1.	check for errors and return(ends the program).
+	2.	counts and logs each variable that is being written.
+	note: it is imperative this struct would be applied to all functions and 
+	processes of the ft_printf function.
+	
+	My ft_printf is declared with a return type of 'int' to indicate the
+	number of characters succesfully written to the standard output/printed
+	as 'return(audit.count)'.
+	If an error occurs during printing, a negative value is returned.
+	This is done via the struct 't_check' that was earlier declared.
+
+	The variable 'char *format' reperesents the format flags (cspdiuxX%) that
+	tells the program what type of variable its writing to the standard output.
+
+	To begin, we would need the standard C library 'stdarg.h' which was included
+	in header file ft_printf.h. This would allow us to make use of the variardic
+	functions.
+	The following variardic functions (macros): va_start, va_arg, and va_end.
+	The va_start() macro must be called first and We would also need to declare
+	the argument pointer 'va_list' as a parameter to these macros. This is 
+	declared as 'arg_pnt'(argument pointer).
+	And this 'arg_pnt' is passed to va_arg() for each argument to be processed.
+	
+	Struct 't_check' is declared as 'audit' and the variables, error and count
+	within are initalised to '0'.
+	Calling va_end withing the same function is imperatibve as it signals the
+	end of the program.
+	
+	We start the macros 'va_start' with the parameter declared via 'va_list' 
+	and using format: va_start(arg_pnt, format) which is utilised for 'va_arg'.
+	In the primary ft_printf function, the method used after all of the above
+	is done is to create a while loop that behavesin a way to check for the 
+	modulo '%' if not found then performs other required tasks. If the 
+	modulo is found, then the format flags are checked for.
+	To check for the format flags, a static helper function 'ft_format_check'
+	is made.
+	ft_format_check diects the program to its expected helper function via
+	the conditional statements checking the format flags.
+	A special case for the helper function 'ft_put_hex', should have its 
+	va_arg parameter as unsigned int, for some reason unsigned long breaks.
+		*/
 
 #include "ft_printf.h"
 
@@ -25,9 +82,14 @@ static void	ft_format_check(va_list arg_pnt, char format, t_check *audit)
 	else if (format == 'u')
 		ft_put_unsign_fd(va_arg(arg_pnt, unsigned int), audit);
 	else if (format == 'x' || format == 'X')
-		ft_put_hex(va_arg(arg_pnt, unsigned long), audit, format);
+		ft_put_hex(va_arg(arg_pnt, unsigned int), audit, format);
 	else if (format == 'p')
 		ft_put_ptr_hex(va_arg(arg_pnt, unsigned long), audit);
+	else
+	{
+		ft_putchar_fd('%', audit);
+		ft_putchar_fd(format, audit);
+	}
 }
 
 int	ft_printf(const char *format, ...)
@@ -54,27 +116,4 @@ int	ft_printf(const char *format, ...)
 	if (audit.error < 0)
 		return (-1);
 	return (audit.count);
-}
-#include <stdio.h>
-
-#include <limits.h>
-
-int	main(void)
-{
-	// long x = 2147483649;
-	// int y = 1;
-	// char *str = "fish";
-	int test = 0;
-	// int oh = 15 / 16;
-	// int oh2 = 14 % 16;
-	// printf("ft_printf value = %d\n", ft_printf("The result is: %d\n", x));
-	// printf("Printf value = %d\n", 	printf("The result is: %d\n", x));
-	// ft_printf("ft_printf checking ft_printf value = %d\n", ft_printf("The result is: %d\n", x));
-	// ft_printf("ft_printf checking printf value = %d\n", printf("The result is: %d\n", x));
-	// printf("This is the format %%p = %p\n", test);
-	// printf("this is 15 / 16 %d\n", oh);
-	// printf("this is 15 %% 16 %d\n", oh2);
-	ft_printf("This is ft_printf format p: %p\n", test);
-	printf("This is printf format p: %p\n", test);
-	// return (0);
 }
