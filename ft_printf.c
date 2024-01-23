@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:03:51 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/01/23 13:25:48 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:37:53 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ static void	ft_format_check(va_list arg_pnt, char format, t_check *audit)
 	else if (format == 'u')
 		ft_put_unsign_fd(va_arg(arg_pnt, unsigned int), audit);
 	else if (format == 'x' || format == 'X')
-		ft_put_hex(va_arg(arg_pnt, unsigned int), audit, format);
+		ft_Hexadecimal(va_arg(arg_pnt, unsigned int), audit, format);
 	else if (format == 'p')
-		ft_put_ptr_hex(va_arg(arg_pnt, unsigned long), audit);
+		ft_Pointer_Hex(va_arg(arg_pnt, unsigned long), audit);
 	else
 	{
 		ft_putchar_fd('%', audit);

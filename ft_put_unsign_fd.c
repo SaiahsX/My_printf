@@ -6,9 +6,12 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 18:31:16 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/01/22 13:23:37 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/01/23 21:02:44 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*	This is a helper function for my ft_printf function that handles and writes
+	strings.	*/
 
 #include "ft_printf.h"
 
