@@ -6,7 +6,7 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:03:51 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/01/22 20:02:46 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/01/23 13:25:48 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 	
 	Struct 't_check' is declared as 'audit' and the variables, error and count
 	within are initalised to '0'.
-	Calling va_end withing the same function is imperatibve as it signals the
+	Calling va_end within the same function is imperative as it signals the
 	end of the program.
 	
 	We start the macros 'va_start' with the parameter declared via 'va_list' 
@@ -61,11 +61,10 @@
 	modulo is found, then the format flags are checked for.
 	To check for the format flags, a static helper function 'ft_format_check'
 	is made.
-	ft_format_check diects the program to its expected helper function via
+	ft_format_check directs the program to its expected helper function via
 	the conditional statements checking the format flags.
 	A special case for the helper function 'ft_put_hex', should have its 
-	va_arg parameter as unsigned int, for some reason unsigned long breaks.
-		*/
+	va_arg parameter as unsigned int, for some reason unsigned long breaks.	*/
 
 #include "ft_printf.h"
 

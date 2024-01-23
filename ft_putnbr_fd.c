@@ -6,9 +6,12 @@
 /*   By: oadewumi <oadewumi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:01:32 by oadewumi          #+#    #+#             */
-/*   Updated: 2024/01/11 11:16:46 by oadewumi         ###   ########.fr       */
+/*   Updated: 2024/01/23 13:48:46 by oadewumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*	This is a heler function for my ft_printf function that handles and writes
+out numbers (integers)	*/
 
 #include "ft_printf.h"
 
