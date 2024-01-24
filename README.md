@@ -12,7 +12,7 @@ This is my second Hive project to develop my own printf function that imitates t
 
   	This is the primary function file for my *ft_printf*.
 
-	My *ft_printf.c* with a prototype *int ft_printf(const char *format, ...)*
+	My _ft_printf.c_ with a prototype _int ft_printf(const char *format, ...)_
 	is	a variadic function, that is, it accepts a variable	number arguments 
 	that is denoted by the ellipses "..." in the protoype.
 	A struct 't_check' was declared in my header file, "ft_printf.h" in the 
