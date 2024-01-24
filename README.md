@@ -4,7 +4,7 @@ This is my second Hive project to develop my own printf function that imitates t
 
 ## Table of content
 
-	- [Description](#my_ft_printf)
+	- [ Description ](#my_ft_printf)
 	- [Anatomy of ft_printf.c](#main-function-ft-printfc)
 	- [Helper functions](#helper-functions)
 
